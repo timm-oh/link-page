@@ -9,5 +9,9 @@ class User < ApplicationRecord
 
   has_many :links
 
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, presence: true, on: :setup
+
+  def is_setup?
+    username.present?
+  end
 end

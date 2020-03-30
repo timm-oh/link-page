@@ -2,9 +2,9 @@ h2
   | Edit #{resource_name.to_s.humanize}
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: #{resource.unconfirmed_email}
+  .field
+    = f.label :username
+    = f.text_field :username
   .field
     = f.label :password
     i = "leave blank if you don't want to change it"
@@ -25,8 +25,5 @@ h2
     br
     = f.password_field :current_password, autocomplete: "current-password"
   .actions
-    = f.submit "Update"
-h3 Cancel my account
-p
-  | Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+  = f.submit f.object.is_setup? ? "Update" : "Setup"
 = link_to "Back", :back

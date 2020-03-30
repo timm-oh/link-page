@@ -5,10 +5,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  scope module: :user, path: 'my' do
-    resources :links
+  scope module: 'users' do
+    resource :setup, only: [:edit, :update], controller: :setups
   end
 
-  get "/:username", to: 'links#index'
+  resources :links
+
+  get "/:username", to: 'displays#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
