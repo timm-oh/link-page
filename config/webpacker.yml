@@ -17,7 +17,8 @@ default: &default
   cache_manifest: false
 
   # Extract and emit a css file
-  extract_css: false
+  # This needs to be true otherwise stylesheet_pack_tag doesn't work
+  extract_css: true
 
   static_assets_extensions:
     - .jpg
