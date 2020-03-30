@@ -21,10 +21,12 @@ gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'slim-rails', '~> 3'
+gem 'devise', '~> 4.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
+  gem 'factory_bot_rails', '~> 5.1'
 end
 
 group :development do
