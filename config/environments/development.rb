@@ -44,7 +44,7 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
-  config.hosts << "lvh.me"
+  config.hosts += ["lvh.me", 'www.lvh.me']
 
   config.action_mailer.default_url_options = { host: 'lvh.me', port: 3000 }
 

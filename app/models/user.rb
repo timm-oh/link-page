@@ -6,4 +6,8 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
+
+  has_many :links
+
+  validates :username, uniqueness: true
 end

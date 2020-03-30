@@ -1,0 +1,9 @@
+br
+- if @user.persisted?
+  = "Currently viewing: #{@user}"
+  - if @links.any?
+    = render @links
+  - else
+    = "This user has no links :("
+- else
+  = "There is no user with the username: #{@user.username}"
