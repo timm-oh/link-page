@@ -6,6 +6,12 @@ class DisplaysController < ApplicationController
     @links = @user.links.load
   end
 
+  protected
+
+  def render_navbar?
+    false
+  end
+
   private
 
   def set_user

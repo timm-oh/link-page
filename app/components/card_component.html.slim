@@ -1,0 +1,3 @@
+.uk-card.uk-card-body class="uk-card-#{@style_modifier} #{@hover ? 'uk-card-hover' : nil } #{@size_modifier ? "uk-card-#{@size_modifier}" : nil}"
+  h3.uk-card-title = @title if @title
+  = @body if @body

@@ -1,10 +1,14 @@
-br
-- if @user.persisted?
-  = "Currently viewing: #{@user.username}"
-  br
+h4.uk-margin-top.uk-text-center = "@#{@user.username}"
+.uk-margin-left.uk-margin-right.uk-margin
   - if @links.any?
-    = render @links
+    .uk-align-center class="uk-width-1-3@m uk-width-1-1 uk-width-2-3@s"
+      - @links.each do |link|
+        .uk-margin
+          = link_to link.url, target: '_blank' do
+            = render(CardComponent.new(hover: true, style_modifier: 'primary', size_modifier: 'small')) do |component|
+              - component.with(:title) do
+                .uk-text-center = link.name
   - else
-    = "This user has no links :("
-- else
-  = "There is no user with the username: #{@user.username}"
+    = render CardComponent.new do |component|
+      - component.with(:body) do
+        = "This user has no links :("

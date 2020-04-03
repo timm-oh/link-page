@@ -1,6 +1,7 @@
-h1 Listing links
+div class="uk-margin-left uk-margin-right"
+  h1.uk-margin-top Listing links
+  = link_to current_user.username, target: '_blank' do
+    = "#{request.host}:#{request.port}/#{current_user.username}"
 
-= link_to "Your landing page", current_user.username, target: '_blank'
-
-= render(LinksTableComponent.new(links: @links))
-= render(ButtonLinkComponent.new(text: "New Link", link: new_link_path, classes: ['uk-button-default']))
+  = render(Links::TableComponent.new(links: @links))
+  = render(ButtonLinkComponent.new(text: "New Link", link: new_link_path, classes: ['uk-button-default']))

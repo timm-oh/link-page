@@ -30,6 +30,9 @@ module LinkPage
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # View components preview path
+    config.view_component.preview_path = "#{Rails.root}/lib/component_previews"
+
     config.generators do |g|
       g.helper         false
       g.test_framework :test_unit, fixture: true
