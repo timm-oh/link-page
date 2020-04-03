@@ -27,8 +27,8 @@ jobs:
       with:
         ruby-version: 2.7.0
 
-#   https://dev.to/codefund/ci-for-ruby-on-rails-github-actions-3mn1
-    - name: Get Yarn Cache
+#     https://dev.to/codefund/ci-for-ruby-on-rails-github-actions-3mn1
+    - name: Yarn Cache
       id: yarn-cache
       run: echo "::set-output name=dir::$(yarn cache dir)"
 
@@ -43,7 +43,7 @@ jobs:
           ${{ runner.os }}-yarn-link-page-
           ${{ runner.os }}-yarn-
 
-    - name: Setup cache key and directory for gems cache
+    - name: Gem Cache
       uses: actions/cache@v1
       with:
         path: vendor/bundle
@@ -94,7 +94,7 @@ jobs:
       run: yarn check || bin/rails yarn:install
 
     - name: Assets Precompile
-      run: bundle exec bin/rails assets:precompile
+      run: RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec bin/rails assets:precompile
 
     - name: Setup Database
       env:
@@ -102,7 +102,7 @@ jobs:
         PGUSER: postgres
         PGPASSWORD: postgres
         RAILS_ENV: test
-      run: bundle exec bin/rails db:create db:schema:load --trace
+      run: RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec bin/rails db:create db:schema:load --trace
 
     - name: Run Tests
       env:
@@ -112,7 +112,7 @@ jobs:
         RAILS_ENV: test
       run: |
         RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec rails test
-        # RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec rails test:system
+        # RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec bin/rails test:system
 
 #       https://github.com/rails/rails/issues/37966
 #     - name: Zeitwerk Check
