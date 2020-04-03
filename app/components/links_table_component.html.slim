@@ -1,0 +1,13 @@
+table.uk-table.uk-table-divider.uk-table-small.uk-table-responsive
+  thead
+    tr
+      - headers.each do |header|
+        th = header&.titleize
+  tbody
+    - @links.each do |link|
+      tr
+        td = link.name
+        td = link.url
+        td = link_to 'Show', link
+        td = link_to 'Edit', edit_link_path(link)
+        td = link_to 'Destroy', link, data: { confirm: 'Are you sure?' }, method: :delete

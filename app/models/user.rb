@@ -7,8 +7,11 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
-  has_many :links
+  has_many :links, dependent: :restrict_with_error
 
-  validates :username, uniqueness: true, presence: true
+  validates :username,
+            uniqueness: true,
+            presence: true,
+            format: { with: /\A[a-zA-Z0-9-_]+\Z/, message: "can only contain alphanumeric characters with underscores or dashes" }
 
 end
