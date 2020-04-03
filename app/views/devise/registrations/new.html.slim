@@ -4,18 +4,23 @@ h2 Sign up
   .field
     = f.label :email
     br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.email_field :email, autofocus: true, autocomplete: "email", required: true
+
+  .field
+    = f.label :username
+    br/
+    = f.text_field :username, required: true
   .field
     = f.label :password
     - if @minimum_password_length
       em
         | (#{@minimum_password_length} characters minimum)
     br/
-    = f.password_field :password, autocomplete: "new-password"
+    = f.password_field :password, autocomplete: "new-password", required: true
   .field
     = f.label :password_confirmation
     br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+    = f.password_field :password_confirmation, autocomplete: "new-password", required: true
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"

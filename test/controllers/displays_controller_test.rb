@@ -8,7 +8,7 @@ class DisplaysControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index for username that exists" do
-    user = create(:user)
+    user = users(:tim)
     get "/#{user.username}"
     assert_response :success
   end

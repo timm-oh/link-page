@@ -7,8 +7,10 @@ ruby '2.7.0'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
-gem 'webpacker', '5.0.1' # if you update this, you have to update @rails/webpacker to the same version
-gem 'turbolinks', '~> 5'
+# if you update this, you have to update yarn upgrade @rails/webpacker to the same version
+gem 'webpacker', '5.0.1'
+# if you update this, you have to update yarn upgrade turbolinks to the same version
+gem 'turbolinks', '5.2.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -26,7 +28,6 @@ gem 'devise', '~> 4.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
-  gem 'factory_bot_rails', '~> 5.1'
   gem 'strong_migrations'
 end
 

@@ -4,9 +4,8 @@ class LinksControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @user = create(:user, :setup)
-    sign_in @user
-    @link = create(:link, user: @user)
+    @link = links(:valid_link)
+    sign_in @link.user
   end
 
   test "should get index" do

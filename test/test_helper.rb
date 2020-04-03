@@ -5,7 +5,7 @@ require 'rails/test_help'
 Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new, Minitest::Reporters::JUnitReporter.new('tmp/test-results/junit')]
 
 class ActiveSupport::TestCase
-  include FactoryBot::Syntax::Methods
+  fixtures :all
 
   parallelize(workers: :number_of_processors)
 end

@@ -1,5 +1,4 @@
 class LinksController < ApplicationController
-  before_action :check_user_setup
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
   # GET /links

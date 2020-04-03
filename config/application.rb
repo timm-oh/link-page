@@ -31,7 +31,7 @@ module LinkPage
 
     config.generators do |g|
       g.helper         false
-      g.test_framework :test_unit, fixture: false
+      g.test_framework :test_unit, fixture: true
       g.assets         false
     end
   end
