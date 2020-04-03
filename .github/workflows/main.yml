@@ -65,6 +65,14 @@ jobs:
         PGPASSWORD: postgres
         RAILS_ENV: test
       run: bundle exec bin/rails db:create db:schema:load --trace
+    
+    - name: Assets Precompile
+      env: 
+        PGHOST: 127.0.0.1
+        PGUSER: postgres
+        PGPASSWORD: postgres
+        RAILS_ENV: test
+      run: bundle exec rails assets:precompile
 
     - name: Run Tests
       env:
