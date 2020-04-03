@@ -25,6 +25,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'slim-rails', '~> 3'
 gem 'devise', '~> 4.7'
 
+gem 'view_component', '~> 2.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
