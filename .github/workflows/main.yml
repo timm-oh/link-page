@@ -114,5 +114,6 @@ jobs:
         RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec rails test
         # RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec rails test:system
 
-    - name: Zeitwerk Check
-      run: bundle exec bin/rails zeitwerk:check
+#       https://github.com/rails/rails/issues/37966
+#     - name: Zeitwerk Check
+#       run: bundle exec bin/rails zeitwerk:check
