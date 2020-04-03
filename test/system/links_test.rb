@@ -2,12 +2,13 @@ require "application_system_test_case"
 
 class LinksTest < ApplicationSystemTestCase
   setup do
-    @link = links(:one)
+    @link = links(:valid_link)
+    sign_in(@link.user)
   end
 
   test "visiting the index" do
     visit links_url
-    assert_selector "h1", text: "Links"
+    assert_selector "h1", text: "Listing links"
   end
 
   test "creating a Link" do
@@ -16,7 +17,6 @@ class LinksTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @link.name
     fill_in "Url", with: @link.url
-    fill_in "User", with: @link.user_id
     click_on "Create Link"
 
     assert_text "Link was successfully created"
@@ -29,7 +29,6 @@ class LinksTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @link.name
     fill_in "Url", with: @link.url
-    fill_in "User", with: @link.user_id
     click_on "Update Link"
 
     assert_text "Link was successfully updated"
