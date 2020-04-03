@@ -1,15 +1,7 @@
-= form_for @link do |f|
-  - if @link.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@link.errors.count, "error")} prohibited this link from being saved:"
-      ul
-        - @link.errors.full_messages.each do |message|
-          li = message
+= form_with model: @link, local: true do |f|
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :url
-    = f.text_field :url
-  .actions = f.submit
+  = render(TextFormInputComponent.new(form: f, method: :name, errors: @link.errors[:name]))
+  = render(TextFormInputComponent.new(form: f, method: :url, errors: @link.errors[:url]))
+
+  .actions.uk-margin
+    = f.submit class: 'uk-button uk-button-default'

@@ -1,0 +1,4 @@
+= @form.label @method, class: 'uk-form-label'
+- @errors.each do |error|
+  p = error
+= @form.text_field @method, class: "uk-input #{@errors.any? ? 'uk-form-danger' : nil}"

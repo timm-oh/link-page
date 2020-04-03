@@ -3,7 +3,4 @@ h1 Listing links
 = link_to "Your landing page", current_user.username, target: '_blank'
 
 = render(LinksTableComponent.new(links: @links))
-
-br
-
-= link_to 'New Link', new_link_path
+= render(ButtonLinkComponent.new(text: "New Link", link: new_link_path, classes: ['uk-button-default']))
