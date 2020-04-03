@@ -4,7 +4,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'activemodel', '~> 6.0.2', ">= 6.0.2.2"
+gem 'activejob', '~> 6.0.2', ">= 6.0.2.2"
+gem 'activerecord', '~> 6.0.2', ">= 6.0.2.2"
+gem 'activestorage', '~> 6.0.2', ">= 6.0.2.2"
+gem 'actionpack', '~> 6.0.2', ">= 6.0.2.2"
+gem 'actionmailer', '~> 6.0.2', ">= 6.0.2.2"
+gem 'actiontext', '~> 6.0.2', ">= 6.0.2.2"
+gem 'actionview', '~> 6.0.2', ">= 6.0.2.2"
+gem 'railties', '~> 6.0.2', ">= 6.0.2.2"
+
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
 # if you update this, you have to update yarn upgrade @rails/webpacker to the same version
