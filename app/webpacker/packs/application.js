@@ -17,11 +17,11 @@ require("@rails/activestorage").start()
 
 import "javascript/controllers"
 
-import UIkit from 'uikit';
-import Icons from 'uikit/dist/js/uikit-icons';
+import UIkit from 'uikit'
+import Icons from 'uikit/dist/js/uikit-icons'
 
 // loads the Icon plugin
-UIkit.use(Icons);
+UIkit.use(Icons)
 
 // document.addEventListener('turbolinks:load', () => {
 //   UIkit.notification('Hello world.');
