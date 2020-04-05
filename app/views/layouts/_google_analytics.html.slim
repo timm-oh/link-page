@@ -1,0 +1,18 @@
+/ This partial always has to be rendered in the head and _before_ the application js pack
+= javascript_include_tag GoogleAnalyticsHelper.javascript_url, defer: true, async: true, 'data-turbolinks-track': 'reload'
+javascript:
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', "#{GoogleAnalyticsHelper.tracking_code}");
+  document.addEventListener('turbolinks:load', () => {
+    gtag('send', 'pageview', window.location.pathname);
+  }, true);
+
+/ TODO: We need to add uuid's to user to hide how many users we have
+/ - if current_user
+/   script
+/     | document.addEventListener('turbolinks:load', () => {
+/     |   ga('set', 'userId', "#{current_user.id}");
+/     | });
