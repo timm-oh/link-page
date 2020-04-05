@@ -15,7 +15,7 @@ class LinkTest < ActiveSupport::TestCase
     link_a, link_b, link_c = [5, 4, 3].map do |position|
       new_link = original_link.dup
       new_link.save! # This sets the default last position
-      new_link.update!(position: position)
+      new_link.update!(position: position) # Updates it to the position we want
       new_link
     end
 

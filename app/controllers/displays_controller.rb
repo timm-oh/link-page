@@ -3,7 +3,7 @@ class DisplaysController < ApplicationController
   before_action :set_user
 
   def index
-    @links = @user.links.load
+    @links = @user.links.ordered_by_position.load
   end
 
   protected
