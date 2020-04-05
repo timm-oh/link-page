@@ -1,4 +1,4 @@
-class TextFormInputComponent < ViewComponent::Base
+class Form::TextInputComponent < ViewComponent::Base
   def initialize(form:, method:, errors: [])
     @form = form
     @method = method

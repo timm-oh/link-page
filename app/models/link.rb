@@ -3,6 +3,7 @@ class Link < ApplicationRecord
 
   validates :name, :url, presence: true
   validates :position, presence: true, if: :persisted?
+  validates :name, uniqueness: { scope: :user }
 
   # On create it sets it to the last position
   before_create do

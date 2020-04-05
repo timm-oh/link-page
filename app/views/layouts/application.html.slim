@@ -12,7 +12,7 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    = render(NavBarComponent.new(user: current_user, render: render_navbar?))
+    / = render(NavBarComponent.new(user: current_user, render: render_navbar?))
     - if notice
       p.notice = notice
     - if alert

@@ -1,7 +1,12 @@
-= form_with model: @link, local: true do |f|
+= form_with model: @link, local: true, class: 'uk-form-stacked' do |f|
 
-  = render(TextFormInputComponent.new(form: f, method: :name, errors: @link.errors[:name]))
-  = render(TextFormInputComponent.new(form: f, method: :url, errors: @link.errors[:url]))
+  = render(Form::TextInputComponent.new(form: f, method: :name, errors: @link.errors[:name]))
+  = render(Form::TextInputComponent.new(form: f, method: :url, errors: @link.errors[:url]))
+
+  - if @link.persisted?
+    - link_count = @links.size
+    - options = link_count.times.map { |n| [LinkHelper.display_position(n), n] }
+    = render(Form::SelectInputComponent.new(form: f, method: :position, options: options))
 
   .actions.uk-margin
     = f.submit class: 'uk-button uk-button-default'

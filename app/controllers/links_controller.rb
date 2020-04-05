@@ -1,9 +1,10 @@
 class LinksController < ApplicationController
+  before_action :set_links
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
   # GET /links
   def index
-    @links = current_user.links.all.ordered_by_position
+    @links = @links.ordered_by_position
   end
 
   # GET /links/1
@@ -47,11 +48,15 @@ class LinksController < ApplicationController
 
   private
 
+  def set_links
+    @links = current_user.links.all
+  end
+
   def set_link
-    @link = current_user.links.find(params[:id])
+    @link = @links.find(params[:id])
   end
 
   def link_params
-    params.require(:link).permit(:name, :url)
+    params.require(:link).permit(:name, :url, :position)
   end
 end
