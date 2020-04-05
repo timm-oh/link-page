@@ -1,5 +1,5 @@
 class Links::TableComponent < ViewComponent::Base
-  HEADERS = ['name', 'url', nil, nil, nil].freeze
+  HEADERS = ['name', 'url', 'position', nil, nil, nil].freeze
 
   def initialize(links:)
     @links = links

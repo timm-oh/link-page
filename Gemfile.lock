@@ -53,6 +53,9 @@ GEM
     bootsnap (1.4.6)
       msgpack (~> 1.0)
     builder (3.2.4)
+    bullet (6.1.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.1.1)
     capybara (3.32.0)
       addressable
@@ -143,7 +146,7 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 5.0)
-    strong_migrations (0.6.2)
+    strong_migrations (0.6.3)
       activerecord (>= 5)
     temple (0.8.2)
     thor (1.0.1)
@@ -152,8 +155,9 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.6)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    uniform_notifier (1.13.0)
     view_component (2.2.1)
       capybara (~> 3)
     warden (1.2.8)
@@ -189,6 +193,7 @@ DEPENDENCIES
   activerecord (~> 6.0.2, >= 6.0.2.2)
   activestorage (~> 6.0.2, >= 6.0.2.2)
   bootsnap (>= 1.4.2)
+  bullet
   capybara (>= 2.15)
   devise (~> 4.7)
   minitest-reporters
@@ -198,7 +203,7 @@ DEPENDENCIES
   railties (~> 6.0.2, >= 6.0.2.2)
   selenium-webdriver
   slim-rails (~> 3)
-  strong_migrations
+  strong_migrations (~> 0.6)
   turbolinks (= 5.2.1)
   view_component (~> 2.2)
   web-console (>= 3.3.0)
