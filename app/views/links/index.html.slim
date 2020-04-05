@@ -1,7 +1,7 @@
 div class="uk-margin-left uk-margin-right"
-  h1.uk-margin-top Listing links
-  = link_to current_user.username, target: '_blank' do
-    = user_link_tree_url(current_user)
+  h1.uk-margin-top Listing #{current_user.username} links
+  span
+    | Your link page: #{link_to(current_user.username, target: '_blank') { ApplicationHelper.user_link_tree_url(request, current_user) } }
 
   = render(Links::TableComponent.new(links: @links))
   = render(ButtonLinkComponent.new(text: "New Link", link: new_link_path, classes: ['uk-button-default']))
