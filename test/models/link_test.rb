@@ -4,6 +4,7 @@ class LinkTest < ActiveSupport::TestCase
   test 'should set link position to be the last on create' do
     link = links(:valid_link)
     new_link = link.dup
+    new_link.name = "THINGS"
     new_link.save!
 
     assert_equal 1, new_link.position
@@ -14,6 +15,7 @@ class LinkTest < ActiveSupport::TestCase
 
     link_a, link_b, link_c = [5, 4, 3].map do |position|
       new_link = original_link.dup
+      new_link.name = new_link.name + position.to_s
       new_link.save! # This sets the default last position
       new_link.update!(position: position) # Updates it to the position we want
       new_link

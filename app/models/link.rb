@@ -10,7 +10,7 @@ class Link < ApplicationRecord
     self.position = user.links.select('position + 1 as new_position')
                               .order(position: :desc)
                               .first
-                              .new_position
+                              &.new_position || 1
   end
 
   scope :ordered_by_position, -> { order(position: :asc) }

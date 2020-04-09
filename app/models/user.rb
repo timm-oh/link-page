@@ -12,6 +12,6 @@ class User < ApplicationRecord
   validates :username,
             uniqueness: true,
             presence: true,
-            format: { with: /\A[a-zA-Z0-9-_]+\Z/, message: "can only contain alphanumeric characters with underscores or dashes" }
+            format: { with: /\A^[^_\s\.-][-A-Z\._]+[^\-_\s\.]\Z/i, message: "can only contain alphanumeric characters with underscores or dashes" }
 
 end
