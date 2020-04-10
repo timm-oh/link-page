@@ -1,0 +1,11 @@
+= render(CardComponent.new(title: 'Log in', size_modifier: 'large')) do |component|
+  = component.with(:body) do
+    = form_with(model: resource, url: session_path(resource_name), local: true) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      = render(Form::EmailInputComponent.new(form: f, method: :email, errors: resource.errors[:email]))
+      = render(Form::PasswordInputComponent.new(form: f, method: :password, errors: resource.errors[:password], autocomplete: "current-password", required: true, minlength: @minimum_password_length))
+      = f.hidden_field :remember_me, value: true
+
+      .actions.uk-margin
+        = f.submit "Sign up", class: 'uk-button uk-button-default'
+    = render "devise/shared/links"
