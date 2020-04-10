@@ -57,6 +57,11 @@ class LinksController < ApplicationController
   end
 
   def link_params
-    params.require(:link).permit(:name, :url, :position)
+    params.require(:link).permit(:name, :url, :position, tags: [:key, :value]).tap do |permitted_params|
+      permitted_params[:tags] ||= []
+      permitted_params[:tags] = permitted_params[:tags].map(&:to_h)
+                                                       .map(&:symbolize_keys)
+                                                       .each_with_object({}) { |i, obj| obj[i[:key]] = i[:value] }
+    end
   end
 end

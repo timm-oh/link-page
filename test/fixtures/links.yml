@@ -3,3 +3,9 @@ valid_link:
   url: 'https://www.google.co.za'
   user: tim
   position: 0
+
+invalid_url:
+  name: 'Another Link'
+  url: 'something_random'
+  user: tim
+  position: 0

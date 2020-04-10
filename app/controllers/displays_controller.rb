@@ -8,6 +8,10 @@ class DisplaysController < ApplicationController
 
   protected
 
+  def render_footer?
+    false
+  end
+
   def render_navbar?
     false
   end

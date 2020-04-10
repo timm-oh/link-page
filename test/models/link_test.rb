@@ -23,4 +23,15 @@ class LinkTest < ActiveSupport::TestCase
 
     assert_equal([link_c, link_b, link_a], Link.ordered_by_position.where(id: [link_b.id, link_c.id, link_a.id]))
   end
+
+  test 'validate url format' do
+    link = links(:invalid_url)
+    refute_predicate link, :valid?
+    assert_equal 1, link.errors.count
+    assert link.errors.all? { |key, _| key == :url }
+    link.url = "http://www.google.co.za"
+    assert_predicate link, :valid?
+    link.url = "https://www.google.co.za"
+    assert_predicate link, :valid?
+  end
 end

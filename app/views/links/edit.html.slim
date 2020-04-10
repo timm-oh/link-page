@@ -1,8 +1,8 @@
-h1 Editing: #{@link.name}
+.uk-margin-right.uk-margin-left
+  h1.uk-margin-top Editing: #{@link.name}
 
-= render 'form'
+  = render 'form'
 
-=> link_to 'Show', @link
-'|
-=< link_to 'Back', links_path
-
+  .uk-button-group
+    = render(ButtonLinkComponent.new(text: "Show", link: link_path(@link), classes: ['uk-button-default']))
+    = render(ButtonLinkComponent.new(text: "Back", link: links_path, classes: ['uk-button-default']))
