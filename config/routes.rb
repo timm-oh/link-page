@@ -5,10 +5,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  scope module: 'users' do
-    resource :setup, only: [:edit, :update], controller: :setups
-  end
-
   resources :links
 
   get "/:username", to: 'displays#index', as: :user_display
