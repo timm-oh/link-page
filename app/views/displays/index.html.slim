@@ -3,11 +3,12 @@ h4.uk-margin-top.uk-text-center = "@#{@user.username}"
   - if @links.any?
     .uk-align-center class="uk-width-1-3@m uk-width-1-1 uk-width-2-3@s"
       - @links.each do |link|
-        .uk-margin
-          = link_to url_with_params(link.url, link.tags), target: '_blank' do
-            = render(CardComponent.new(hover: true, style_modifier: 'primary', size_modifier: 'small')) do |component|
-              - component.with(:title) do
-                .uk-text-center = link.name
+        - cache(link) do
+          .uk-margin
+            = link_to url_with_params(link.url, link.tags), target: '_blank' do
+              = render(CardComponent.new(hover: true, style_modifier: 'primary', size_modifier: 'small')) do |component|
+                - component.with(:title) do
+                  .uk-text-center = link.name
   - else
     = render CardComponent.new do |component|
       - component.with(:body) do
