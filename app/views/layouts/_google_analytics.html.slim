@@ -1,5 +1,5 @@
 / This partial always has to be rendered in the head and _before_ the application js pack
-= javascript_include_tag GoogleAnalyticsHelper.javascript_url, defer: true, async: true, 'data-turbolinks-track': 'reload'
+= javascript_include_tag GoogleAnalyticsHelper.javascript_url, defer: true, async: true, 'data-turbolinks-track': 'reload', rel: 'dns-prefetch'
 javascript:
 
   window.dataLayer = window.dataLayer || [];
