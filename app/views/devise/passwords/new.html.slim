@@ -1,0 +1,9 @@
+= render(CardComponent.new(title: 'Forgot your password?', size_modifier: 'large')) do |component|
+  = component.with(:body) do
+    = form_with(model: resource, url: password_path(resource_name), local: true, method: :post) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      = render(Form::EmailInputComponent.new(form: f, method: :email, errors: resource.errors[:email]))
+
+      .actions.uk-margin
+        = f.submit "Send me reset password instructions", class: 'uk-button uk-button-default'
+    = render "devise/shared/links"

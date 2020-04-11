@@ -1,26 +1,12 @@
-h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br/
-    = f.email_field :email, autofocus: true, autocomplete: "email", required: true
+= render(CardComponent.new(title: 'Sign Up', size_modifier: 'large')) do |component|
+  = component.with(:body) do
+    = form_with(model: resource, url: registration_path(resource_name), local: true) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      = render(Form::EmailInputComponent.new(form: f, method: :email, errors: resource.errors[:email]))
+      = render(Form::TextInputComponent.new(form: f, method: :username, errors: resource.errors[:username], required: true))
+      = render(Form::PasswordInputComponent.new(form: f, method: :password, errors: resource.errors[:password], autocomplete: "new-password", required: true, minlength: @minimum_password_length))
+      = render(Form::PasswordInputComponent.new(form: f, method: :password_confirmation, errors: resource.errors[:password_confirmation], autocomplete: "new-password", required: true))
 
-  .field
-    = f.label :username
-    br/
-    = f.text_field :username, required: true
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (#{@minimum_password_length} characters minimum)
-    br/
-    = f.password_field :password, autocomplete: "new-password", required: true
-  .field
-    = f.label :password_confirmation
-    br/
-    = f.password_field :password_confirmation, autocomplete: "new-password", required: true
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+      .actions.uk-margin
+        = f.submit "Sign up", class: 'uk-button uk-button-default'
+    = render "devise/shared/links"

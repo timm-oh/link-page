@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  helper_method :render_navbar?
+  helper_method :render_navbar?, :render_footer?
 
   protected
+
+  def render_footer?
+    true
+  end
 
   def render_navbar?
     true

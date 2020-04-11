@@ -1,0 +1,6 @@
+- random_hex = SecureRandom.hex(2)
+p
+  = @form.label "Param", for: "tags_key_#{random_hex}", class: 'uk-form-label'
+  = @form.text_field "tags[][key]", id: "tags_key_#{random_hex}", value: @key, class: 'uk-input', required: 'true'
+  = @form.label "Value", for: "tags_value_#{random_hex}", class: 'uk-form-label'
+  = @form.text_field "tags[][value]", id: "tags_value_#{random_hex}", value: @value, class: 'uk-input', required: 'true'

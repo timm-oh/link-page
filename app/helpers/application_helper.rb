@@ -1,9 +1,5 @@
 module ApplicationHelper
-  def self.user_link_tree_url(request, user)
-    if Rails.env.development?
-      "#{request.host}:#{request.port}/#{user.username}"
-    else
-      "#{request.host}/#{user.username}"
-    end
+  def url_with_params(url, params = {})
+    [url.chomp('/'), params.presence&.to_query].compact.join("?")
   end
 end

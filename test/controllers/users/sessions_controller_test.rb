@@ -5,7 +5,7 @@ class Users::SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "redirect to links path after sign in" do
     skip "Not sure why this isn't working"
-    user = create(:user)
+    user = users(:tim)
     sign_in(user)
     assert_redirected_to links_path
   end

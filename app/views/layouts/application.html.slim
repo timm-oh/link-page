@@ -2,19 +2,24 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     title LinkPage
     = csrf_meta_tags
     = csp_meta_tag
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
     = render partial: 'layouts/google_analytics'
 
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    / = render(NavBarComponent.new(user: current_user, render: render_navbar?))
+    = render(NavBarComponent.new(user: current_user, render: render_navbar?))
     - if notice
       p.notice = notice
     - if alert
       p.alert  = alert
     = yield
+
+    - if render_footer?
+      footer.uk-width-1-1.uk-margin uk-sticky="bottom: true"
+        span.uk-text-center.uk-align-center.uk-margin-left.uk-margin-right
+          | Please email #{mail_to 'link.page.things@gmail.com', "me"} (link.page.things@gmail.com) for feature requests :)

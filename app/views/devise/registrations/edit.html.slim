@@ -1,29 +1,12 @@
-h2
-  | Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :username
-    = f.text_field :username
-  .field
-    = f.label :password
-    i = "leave blank if you don't want to change it"
-    br
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      br
-      em
-        = @minimum_password_length
-        | characters minimum
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    i = "we need your current password to confirm your changes"
-    br
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-  = f.submit f.object.is_setup? ? "Update" : "Setup"
-= link_to "Back", :back
+= render(CardComponent.new(title: 'Your Profile', size_modifier: 'large')) do |component|
+  = component.with(:body) do
+    = form_with(model: resource, url: registration_path(resource_name), method: :put, local: true) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      = render(Form::TextInputComponent.new(form: f, method: :username, errors: resource.errors[:username]))
+      = render(Form::PasswordInputComponent.new(form: f, method: :password, errors: resource.errors[:password], autocomplete: "new-password", placeholder: "Leave blank if you don't want to change it"))
+      = render(Form::PasswordInputComponent.new(form: f, method: :password_confirmation, errors: resource.errors[:password_confirmation], autocomplete: "new-password", placeholder: "Leave blank if you don't want to change it"))
+      = render(Form::PasswordInputComponent.new(form: f, method: :current_password, errors: resource.errors[:current_password], autocomplete: "current-password", required: true, placeholder: 'We need your current password to confirm your changes'))
+
+      .actions.uk-margin
+        = f.submit "Update profile", class: 'uk-button uk-button-default'
+    = render "devise/shared/links"
