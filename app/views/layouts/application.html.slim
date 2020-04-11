@@ -2,10 +2,10 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
     title LinkPage
     = csrf_meta_tags
     = csp_meta_tag
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     = render partial: 'layouts/google_analytics'
 
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
