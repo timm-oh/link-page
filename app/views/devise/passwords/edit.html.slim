@@ -1,0 +1,11 @@
+= render(CardComponent.new(title: 'Change your password', size_modifier: 'large')) do |component|
+  = component.with(:body) do
+    = form_with(model: resource, url: password_path(resource_name), local: true, method: :put) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      = f.hidden_field :reset_password_token
+      = render(Form::PasswordInputComponent.new(form: f, method: :password, errors: resource.errors[:password], autofocus: true, autocomplete: "new-password", required: true, minlength: @minimum_password_length))
+      = render(Form::PasswordInputComponent.new(form: f, method: :password_confirmation, errors: resource.errors[:password_confirmation], autocomplete: "new-password", required: true))
+
+      .actions.uk-margin
+        = f.submit "Change my password", class: 'uk-button uk-button-default'
+    = render "devise/shared/links"
