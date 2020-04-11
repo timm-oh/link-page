@@ -30,6 +30,9 @@ module LinkPage
     # View components preview path
     config.view_component.preview_path = "#{Rails.root}/lib/component_previews"
 
+    # Set the time zone for the application
+    config.time_zone = 'Pretoria'
+
     config.generators do |g|
       g.helper         false
       g.test_framework :test_unit, fixture: true

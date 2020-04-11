@@ -55,3 +55,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+group :production do
+  gem 'heroku-deflater', '0.6.3'
+end

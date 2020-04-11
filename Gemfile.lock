@@ -78,6 +78,8 @@ GEM
     erubi (1.9.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    heroku-deflater (0.6.3)
+      rack (>= 1.4.5)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     loofah (2.4.0)
@@ -196,6 +198,7 @@ DEPENDENCIES
   bullet
   capybara (>= 2.15)
   devise (~> 4.7)
+  heroku-deflater (= 0.6.3)
   minitest-reporters
   pg (>= 0.18, < 2.0)
   pry-byebug
