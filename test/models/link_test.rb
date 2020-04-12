@@ -2,12 +2,23 @@ require 'test_helper'
 
 class LinkTest < ActiveSupport::TestCase
   test 'should set link position to be the last on create' do
-    link = links(:valid_link)
-    new_link = link.dup
-    new_link.name = "THINGS"
-    new_link.save!
+    user = User.create!(
+      email: "#{SecureRandom.hex(2)}@example.com",
+      password: 'pass1234',
+      password_confirmation: 'pass1234',
+      username: 'something_random'
+    )
 
-    assert_equal 1, new_link.position
+    link = links(:valid_link)
+
+    2.times.each do |i|
+      new_link = link.dup
+      new_link.user = user
+      new_link.name = "THINGS - #{i}"
+      new_link.save!
+
+      assert_equal i, new_link.position
+    end
   end
 
   test 'scope ordered_by_position should order by postion' do
