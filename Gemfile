@@ -56,3 +56,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+group :production do
+  gem 'scout_apm', '~> 2.6'
+end
