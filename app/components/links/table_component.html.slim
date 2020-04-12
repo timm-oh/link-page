@@ -7,7 +7,7 @@ table.uk-table.uk-table-divider.uk-table-small.uk-table-responsive
     - @links.each do |link|
       tr
         td = link.name
-        td = link_to link.url, link.url, target: '_blank'
+        td = link_to link.url, link.url, target: '_blank', rel: 'noopener'
         td = LinkHelper.display_position(link.position)
         td = render(ButtonLinkComponent.new(text: 'Show', link: link_path(link), classes: %w(uk-button-primary uk-width-1-1 uk-width-small@m)))
         td = render(ButtonLinkComponent.new(text: 'Edit', link: edit_link_path(link), classes: %w(uk-button-secondary uk-width-1-1 uk-width-small@m)))
