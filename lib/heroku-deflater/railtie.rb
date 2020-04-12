@@ -1,7 +1,4 @@
 require 'rack/deflater'
-require './lib/heroku-deflater/skip_binary'
-require './lib/heroku-deflater/serve_zipped_assets'
-require './lib/heroku-deflater/cache_control_manager'
 
 module HerokuDeflater
   class Railtie < Rails::Railtie
