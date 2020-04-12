@@ -9,3 +9,21 @@ invalid_url:
   url: 'something_random'
   user: tim
   position: 0
+
+link_in_position_0:
+  name: 'link_in_position_0'
+  url: 'https://www.google.com'
+  user: tim
+  position: 0
+
+link_in_position_1:
+  name: 'link_in_position_1'
+  url: 'https://www.google.com'
+  user: tim
+  position: 1
+
+link_in_position_2:
+  name: 'link_in_position_2'
+  url: 'https://www.google.com'
+  user: tim
+  position: 2
