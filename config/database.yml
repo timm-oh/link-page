@@ -82,6 +82,5 @@ test:
 #
 production:
   <<: *default
-  database: link_page_production
-  username: link_page
-  password: <%= ENV['LINK_PAGE_DATABASE_PASSWORD'] %>
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
