@@ -1,18 +1,19 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'activemodel', '~> 6.0.2', ">= 6.0.2.2"
-gem 'activejob', '~> 6.0.2', ">= 6.0.2.2"
-gem 'activerecord', '~> 6.0.2', ">= 6.0.2.2"
-gem 'activestorage', '~> 6.0.2', ">= 6.0.2.2"
-gem 'actionpack', '~> 6.0.2', ">= 6.0.2.2"
-gem 'actionmailer', '~> 6.0.2', ">= 6.0.2.2"
-gem 'actiontext', '~> 6.0.2', ">= 6.0.2.2"
-gem 'actionview', '~> 6.0.2', ">= 6.0.2.2"
-gem 'railties', '~> 6.0.2', ">= 6.0.2.2"
+rails_version = ['~> 6.0.2', ">= 6.0.2.2"]
+gem 'activemodel', *rails_version
+gem 'activejob', *rails_version
+gem 'activerecord', *rails_version
+gem 'activestorage', *rails_version
+gem 'actionpack', *rails_version
+gem 'actionmailer', *rails_version
+gem 'actiontext', *rails_version
+gem 'actionview', *rails_version
+gem 'railties', *rails_version
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
@@ -54,4 +55,8 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'scout_apm', '~> 2.6'
 end
