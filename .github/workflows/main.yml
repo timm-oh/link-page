@@ -22,10 +22,12 @@ jobs:
           --health-retries 5
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby 2.7
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: 2.7.1
+    - name: asdf_install
+      uses: asdf-vm/actions/install@v1.0.0
+    # - name: Set up Ruby 2.7
+    #   uses: actions/setup-ruby@v1
+    #   with:
+    #     ruby-version: 2.7.1
 
 #     https://dev.to/codefund/ci-for-ruby-on-rails-github-actions-3mn1
     - name: Yarn Cache
