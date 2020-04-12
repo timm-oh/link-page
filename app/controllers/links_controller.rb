@@ -50,7 +50,7 @@ class LinksController < ApplicationController
     @links.where(id: links_params).find_each do |link|
       link.update_columns(position: links_params.index(link.id.to_s).to_i)
     end
-    redirect_to links_path, notice: 'Successfully update position'
+    redirect_to links_path, notice: 'Successfully updated positions'
   end
 
   private
@@ -64,7 +64,7 @@ class LinksController < ApplicationController
   end
 
   def link_params
-    params.require(:link).permit(:name, :url, :position, tags: [:key, :value]).tap do |permitted_params|
+    params.require(:link).permit(:name, :url, tags: [:key, :value]).tap do |permitted_params|
       permitted_params[:tags] ||= []
       permitted_params[:tags] = permitted_params[:tags].map(&:to_h)
                                                        .map(&:symbolize_keys)

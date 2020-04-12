@@ -3,11 +3,6 @@
   = render(Form::TextInputComponent.new(form: f, method: :name, errors: @link.errors[:name], placeholder: "some cool link name"))
   = render(Form::TextInputComponent.new(form: f, method: :url, errors: @link.errors[:url], placeholder: 'https://www.something.cool'))
 
-  - if @link.persisted?
-    - link_count = @links.size
-    - options = link_count.times.map { |n| [LinkHelper.display_position(n), n] }
-    = render(Form::SelectInputComponent.new(form: f, method: :position, options: options))
-
     p
       - @link.tags.each do |param, value|
         = render(Links::TagComponent.new(form: f, key: param, value: value))
