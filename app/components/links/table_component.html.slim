@@ -1,14 +1,17 @@
-table.uk-table.uk-table-divider.uk-table-small.uk-table-responsive
-  thead
-    tr
-      - headers.each do |header|
-        th = header&.titleize
-  tbody
-    - @links.each do |link|
+= form_with(url: reorder_links_path, method: :patch, local: true, data: { controller: 'link-table-sort', target: 'link-table-sort.form' }) do |f|
+  table.uk-table.uk-table-divider.uk-table-small.uk-table-responsive
+    thead
       tr
-        td = link.name
-        td = link_to link.url, link.url, target: '_blank', rel: 'noopener'
-        td = LinkHelper.display_position(link.position)
-        td = render(ButtonLinkComponent.new(text: 'Show', link: link_path(link), classes: %w(uk-button-primary uk-width-1-1 uk-width-small@m)))
-        td = render(ButtonLinkComponent.new(text: 'Edit', link: edit_link_path(link), classes: %w(uk-button-secondary uk-width-1-1 uk-width-small@m)))
-        td = render(ButtonLinkComponent.new(text: 'Destroy', link: link_path(link), classes: %w(uk-button-danger uk-width-1-1 uk-width-small@m), data: { confirm: 'Are you sure?' }, method: :delete))
+        - headers.each do |header|
+          th = header&.titleize
+    tbody data={ target: 'link-table-sort.container' }
+      - @links.each do |link|
+        tr.sortable-handle data={ target: 'link-table-sort.item' }
+          = f.hidden_field :"link_ids[]", value: link.id
+          td uk-icon="icon: table"
+          td = LinkHelper.display_position(link.position)
+          td = link.name
+          td = link_to link.url, link.url, target: '_blank', rel: 'noopener'
+          td = render(ButtonLinkComponent.new(text: 'Show', link: link_path(link), classes: %w(uk-button-primary uk-width-1-1 uk-width-small@m)))
+          td = render(ButtonLinkComponent.new(text: 'Edit', link: edit_link_path(link), classes: %w(uk-button-secondary uk-width-1-1 uk-width-small@m)))
+          td = render(ButtonLinkComponent.new(text: 'Destroy', link: link_path(link), classes: %w(uk-button-danger uk-width-1-1 uk-width-small@m), data: { confirm: 'Are you sure?' }, method: :delete))

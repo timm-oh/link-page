@@ -48,4 +48,18 @@ class LinksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to links_url
   end
+
+  test '#reorder' do
+    @links = links(:link_in_position_0, :link_in_position_1, :link_in_position_2)
+    new_order = [@links.last, @links.first, @links.second]
+
+    assert_no_difference('Link.count') do
+      patch reorder_links_path, params: {
+        link_ids: new_order.map(&:id)
+      }
+    end
+
+    assert_redirected_to links_path
+    assert_equal Link.where(id: @links).ordered_by_position.to_a, new_order
+  end
 end

@@ -46,6 +46,13 @@ class LinksController < ApplicationController
     redirect_to links_url, notice: 'Link was successfully destroyed.'
   end
 
+  def reorder
+    @links.where(id: links_params).find_each do |link|
+      link.update_columns(position: links_params.index(link.id.to_s).to_i)
+    end
+    redirect_to links_path, notice: 'Successfully update position'
+  end
+
   private
 
   def set_links
@@ -63,5 +70,9 @@ class LinksController < ApplicationController
                                                        .map(&:symbolize_keys)
                                                        .each_with_object({}) { |i, obj| obj[i[:key]] = i[:value] }
     end
+  end
+
+  def links_params
+    params.require(:link_ids)
   end
 end

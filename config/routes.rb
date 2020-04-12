@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :links
+  resources :links do
+    patch "reorder", on: :collection
+  end
 
   get "/:username", to: 'displays#index', as: :user_display
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
