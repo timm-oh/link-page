@@ -2,8 +2,8 @@
   "name": "link_page",
   "private": true,
   "dependencies": {
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
+    "@rails/activestorage": "6.0.2-2",
+    "@rails/ujs": "6.0.2-2",
     "@rails/webpacker": "^5.0.1",
     "autoprefixer": "^9.7.5",
     "css-loader": "^3.4.2",
