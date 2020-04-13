@@ -6,6 +6,8 @@ class Link < ApplicationRecord
   validates :name, uniqueness: { scope: :user }
   validates :url, format: /\A#{URI::regexp(['http', 'https'])}\z/
 
+  enum style: { blue: 0, black: 1 }
+
   # On create it sets it to the last position
   before_create do
     self.position = user.links.select('position + 1 as new_position')
