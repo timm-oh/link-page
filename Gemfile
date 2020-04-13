@@ -37,9 +37,9 @@ gem 'devise', '~> 4.7'
 
 gem 'view_component', '~> 2.2'
 
+gem 'pry-byebug'
+
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry-byebug'
   gem 'strong_migrations', '~> 0.6'
   gem 'bullet'
 end
