@@ -38,6 +38,7 @@ gem 'devise', '~> 4.7'
 gem 'view_component', '~> 2.2'
 
 gem 'pry-byebug'
+gem 'barnes'
 
 group :development, :test do
   gem 'strong_migrations', '~> 0.6'
