@@ -3,14 +3,16 @@
     = render(Links::TagComponent.new(form: f, key: nil, value: nil))
 
   div data={ target: 'copy-node.destination' }
-    = render(Form::TextInputComponent.new(form: f, method: :name, errors: @link.errors[:name], placeholder: "some cool link name"))
-    = render(Form::TextInputComponent.new(form: f, method: :url, errors: @link.errors[:url], placeholder: 'https://www.something.cool'))
+    .uk-margin
+      = render(Form::TextInputComponent.new(form: f, method: :name, errors: @link.errors[:name], placeholder: "some cool link name"))
+    .uk-margin
+      = render(Form::TextInputComponent.new(form: f, method: :url, errors: @link.errors[:url], placeholder: 'https://www.something.cool'))
     p
       - @link.tags.each do |param, value|
         = render(Links::TagComponent.new(form: f, key: param, value: value))
 
   button.uk-margin.uk-button.uk-button-default data={ action: 'click->copy-node#copy' }
-    | Add New Tag
+    | Add New Link Parameter
 
   .actions.uk-margin
-    = f.submit class: 'uk-button uk-button-default'
+    = f.submit class: 'uk-button uk-button-primary'
