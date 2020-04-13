@@ -34,6 +34,8 @@ module LinkPage
     # Set the time zone for the application
     config.time_zone = 'Pretoria'
 
+    I18n.available_locales = [:en]
+
     config.generators do |g|
       g.helper         false
       g.test_framework :test_unit, fixture: true
