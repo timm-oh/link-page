@@ -5,7 +5,7 @@ h4.uk-margin-top.uk-text-center = "@#{@user.username}"
       - @links.each do |link|
         - cache(link) do
           .uk-margin
-            = link_to url_with_params(link.url, link.tags), target: '_blank', rel: 'noopener' do
+            = link_to ApplicationHelper.url_with_params(link.url, link.tags), target: '_blank', rel: 'noopener' do
               = render(CardComponent.new(hover: true, style_modifier: 'primary', size_modifier: 'small')) do |component|
                 - component.with(:title) do
                   .uk-text-center = link.name
