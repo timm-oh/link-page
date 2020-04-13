@@ -9,6 +9,10 @@
     strong Position:
     = LinkHelper.display_position(@link.position)
 
+  p
+    strong Style:
+    = @link.style
+
   - if @link.tags.any?
     - @link.tags.each do |key, value|
       p

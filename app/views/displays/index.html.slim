@@ -1,4 +1,5 @@
 h4.uk-margin-top.uk-text-center = "@#{@user.username}"
+- card_mapper = { 'blue' => 'primary', 'black' => 'secondary' }
 .uk-margin-small-left.uk-margin-small-right.uk-margin class="uk-margin-right@m uk-margin-left@m"
   - if @links.any?
     .uk-align-center class="uk-width-1-3@m uk-width-1-1 uk-width-2-3@s"
@@ -6,7 +7,7 @@ h4.uk-margin-top.uk-text-center = "@#{@user.username}"
         - cache(link) do
           .uk-margin
             = link_to ApplicationHelper.url_with_params(link.url, link.tags), target: '_blank', rel: 'noopener' do
-              = render(CardComponent.new(hover: true, style_modifier: 'primary', size_modifier: 'small')) do |component|
+              = render(CardComponent.new(hover: true, style_modifier: card_mapper[link.style], size_modifier: 'small')) do |component|
                 - component.with(:title) do
                   .uk-text-center = link.name
   - else

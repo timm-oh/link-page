@@ -64,7 +64,7 @@ class LinksController < ApplicationController
   end
 
   def link_params
-    params.require(:link).permit(:name, :url, tags: [:key, :value]).tap do |permitted_params|
+    params.require(:link).permit(:name, :url, :style, tags: [:key, :value]).tap do |permitted_params|
       permitted_params[:tags] ||= []
       permitted_params[:tags] = permitted_params[:tags].map(&:to_h)
                                                        .map(&:symbolize_keys)
