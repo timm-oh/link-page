@@ -1,6 +1,7 @@
 - random_hex = SecureRandom.hex(2)
-p
+div data={ controller: 'remove-node', target: 'remove-node.source'}
   = @form.label "Param", for: "tags_key_#{random_hex}", class: 'uk-form-label'
   = @form.text_field "tags[][key]", id: "tags_key_#{random_hex}", value: @key, class: 'uk-input', required: 'true'
   = @form.label "Value", for: "tags_value_#{random_hex}", class: 'uk-form-label'
   = @form.text_field "tags[][value]", id: "tags_value_#{random_hex}", value: @value, class: 'uk-input', required: 'true'
+  div uk-icon="icon: trash" data={ action: 'click->remove-node#remove' }

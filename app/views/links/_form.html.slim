@@ -1,11 +1,16 @@
-= form_with model: @link, local: true, class: 'uk-form-stacked' do |f|
+= form_with model: @link, local: true, class: 'uk-form-stacked', data: { controller: 'copy-node' } do |f|
+  template data={ target: 'copy-node.source' }
+    = render(Links::TagComponent.new(form: f, key: nil, value: nil))
 
-  = render(Form::TextInputComponent.new(form: f, method: :name, errors: @link.errors[:name], placeholder: "some cool link name"))
-  = render(Form::TextInputComponent.new(form: f, method: :url, errors: @link.errors[:url], placeholder: 'https://www.something.cool'))
-
+  div data={ target: 'copy-node.destination' }
+    = render(Form::TextInputComponent.new(form: f, method: :name, errors: @link.errors[:name], placeholder: "some cool link name"))
+    = render(Form::TextInputComponent.new(form: f, method: :url, errors: @link.errors[:url], placeholder: 'https://www.something.cool'))
     p
       - @link.tags.each do |param, value|
         = render(Links::TagComponent.new(form: f, key: param, value: value))
+
+  button.uk-margin.uk-button.uk-button-default data={ action: 'click->copy-node#copy' }
+    | Add New Tag
 
   .actions.uk-margin
     = f.submit class: 'uk-button uk-button-default'
