@@ -33,6 +33,7 @@ module LinkPage
 
     # Set the time zone for the application
     config.time_zone = 'Pretoria'
+    config.active_record.cache_versioning = true
 
     I18n.available_locales = [:en]
 

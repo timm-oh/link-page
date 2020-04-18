@@ -1,4 +1,6 @@
-h4.uk-margin-top.uk-text-center = "@#{@user.username}"
+- neat_username = UserHelper.neat_username(@user.username)
+- content_for(:title) { neat_username }
+h4.uk-margin-top.uk-text-center = neat_username
 - card_mapper = { 'blue' => 'primary', 'black' => 'secondary' }
 .uk-margin-small-left.uk-margin-small-right.uk-margin class="uk-margin-right@m uk-margin-left@m"
   - if @links.any?

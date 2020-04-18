@@ -6,4 +6,8 @@ module ApplicationHelper
   def self.display_page_url(host, username)
     "#{host}/#{username}"
   end
+
+  def page_title
+    [content_for(:title), 'Tim Link Me'].reject(&:blank?).join(' | ')
+  end
 end
