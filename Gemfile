@@ -42,9 +42,9 @@ gem 'view_component', '~> 2.2'
 
 gem 'pry-byebug'
 gem 'barnes'
+gem 'strong_migrations', '~> 0.6'
 
 group :development, :test do
-  gem 'strong_migrations', '~> 0.6'
   gem 'bullet'
 end
 
