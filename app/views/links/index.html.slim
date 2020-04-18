@@ -5,5 +5,7 @@
     | Your link page: #{link_to(current_user.username, target: '_blank') { short_url } }
     .uk-margin-left uk-icon="icon: copy" data={ controller: 'copy-to-clipboard', "copy-to-clipboard-text": short_url, action: "click->copy-to-clipboard#copyToClipboard" }
 
-  = render(Links::TableComponent.new(links: @links))
+  - cache(@links) do
+    = render(Links::TableComponent.new(links: @links))
+
   = render(ButtonLinkComponent.new(text: "New Link", link: new_link_path, classes: ['uk-button-default']))
