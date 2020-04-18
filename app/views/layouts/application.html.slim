@@ -9,7 +9,7 @@ html lang="#{I18n.locale}"
     = render partial: 'layouts/google_analytics'
 
     = stylesheet_pack_tag('application', media: 'all', 'data-turbolinks-track': 'reload')
-    = javascript_pack_tag('application', 'data-turbolinks-track': 'reload')
+    = javascript_pack_tag('application', 'data-turbolinks-track': 'reload', async: '')
 
   body
     = render(NavBarComponent.new(user: current_user, render: render_navbar?))
