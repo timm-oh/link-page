@@ -33,6 +33,7 @@ gem 'turbolinks', '5.2.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'dalli', '2.7.10'
+gem 'sentry-raven', '3.0.0'
 
 gem 'slim-rails', '~> 3'
 gem 'devise', '~> 4.7'
