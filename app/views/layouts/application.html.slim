@@ -8,8 +8,8 @@ html lang="#{I18n.locale}"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = render partial: 'layouts/google_analytics'
 
-    = stylesheet_pack_tag('application', media: 'all', defer: '', 'data-turbolinks-track': 'reload')
-    = javascript_pack_tag('application', 'data-turbolinks-track': 'reload', defer: '')
+    = stylesheet_pack_tag('application', media: 'all', 'data-turbolinks-track': 'reload')
+    = javascript_pack_tag('application', 'data-turbolinks-track': 'reload')
 
   body
     = render(NavBarComponent.new(user: current_user, render: render_navbar?))
