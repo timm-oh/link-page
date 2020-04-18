@@ -1,23 +1,24 @@
-.uk-margin-right.uk-margin-left
-  p.uk-margin-top
-    strong Name:
-    = @link.name
-  p
-    strong Url:
-    = @link.url
-  p
-    strong Position:
-    = LinkHelper.display_position(@link.position)
+- cache(@link) do
+  .uk-margin-right.uk-margin-left
+    p.uk-margin-top
+      strong Name:
+      = @link.name
+    p
+      strong Url:
+      = @link.url
+    p
+      strong Position:
+      = LinkHelper.display_position(@link.position)
 
-  p
-    strong Style:
-    = @link.style
+    p
+      strong Style:
+      = @link.style
 
-  - if @link.tags.any?
-    - @link.tags.each do |key, value|
-      p
-        span Key: #{key} | Value: #{value}
+    - if @link.tags.any?
+      - @link.tags.each do |key, value|
+        p
+          span Key: #{key} | Value: #{value}
 
-  .uk-button-group
-    = render(ButtonLinkComponent.new(text: "Edit Link", link: edit_link_path(@link), classes: ['uk-button-default']))
-    = render(ButtonLinkComponent.new(text: "Back", link: links_path, classes: ['uk-button-default']))
+    .uk-button-group
+      = render(ButtonLinkComponent.new(text: "Edit Link", link: edit_link_path(@link), classes: ['uk-button-default']))
+      = render(ButtonLinkComponent.new(text: "Back", link: links_path, classes: ['uk-button-default']))

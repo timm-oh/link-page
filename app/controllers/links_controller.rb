@@ -48,7 +48,7 @@ class LinksController < ApplicationController
 
   def reorder
     @links.where(id: links_params).find_each do |link|
-      link.update_columns(position: links_params.index(link.id.to_s).to_i)
+      link.update_columns(position: links_params.index(link.id.to_s).to_i, updated_at: Time.current)
     end
     redirect_to links_path, notice: 'Successfully updated positions'
   end
