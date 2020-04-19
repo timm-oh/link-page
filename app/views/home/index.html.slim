@@ -1,2 +1,7 @@
 - content_for(:title) { "Home" }
-h1.uk-text-center Nothing here yet :)
+.uk-container.uk-container-center
+  .uk-text-center
+    h3.uk-margin-top Welcome to timlink.me :)
+    - unless current_user
+      div
+        | #{link_to("Sign up", new_user_registration_path)} or #{link_to('Log In', new_user_session_path)} to get started

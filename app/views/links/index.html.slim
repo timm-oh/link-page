@@ -3,8 +3,8 @@
   h1.uk-margin-top Listing #{current_user.username}'s links
   span
     - short_url = ApplicationHelper.display_page_url(request.host, current_user.username)
-    | Your link page: #{link_to(current_user.username, target: '_blank') { short_url } }
-    .uk-margin-left uk-icon="icon: copy" data={ controller: 'copy-to-clipboard', "copy-to-clipboard-text": short_url, action: "click->copy-to-clipboard#copyToClipboard" }
+    | Your link page: #{link_to(user_display_path(current_user.username), target: '_blank') { short_url } }
+    .uk-margin-left uk-icon="icon: copy" data={ controller: 'copy-to-clipboard', "copy-to-clipboard-text": user_display_url(current_user.username), action: "click->copy-to-clipboard#copyToClipboard" }
 
   - cache(@links) do
     = render(Links::TableComponent.new(links: @links))
