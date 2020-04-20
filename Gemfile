@@ -1,7 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+file = File.read('.tool-versions')
+ruby_version = file.lines.find do |line|
+  line.match?(/[ruby]/)
+end.strip.split(" ").last
+
+ruby(ruby_version)
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 rails_version = ['~> 6.0.2', ">= 6.0.2.2"]
