@@ -16,6 +16,7 @@
 
 #### Application Server
 * Run `bin/rails server` to start the server
+* In another tab, run `bin/webpack-dev-server` to compile assets
 * Go to `localhost:3000` or `www.lvh.me:3000` to see that everything is working
 
 #### Testing
