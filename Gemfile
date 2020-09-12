@@ -9,21 +9,21 @@ end.strip.split(" ").last
 ruby(ruby_version)
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-rails_version = ['~> 6.0.2', ">= 6.0.2.2"]
-gem 'activemodel', *rails_version
-gem 'activejob', *rails_version
-gem 'activerecord', *rails_version
-gem 'activestorage', *rails_version
-gem 'actionpack', *rails_version
-gem 'actionmailer', *rails_version
-gem 'actiontext', *rails_version
-gem 'actionview', *rails_version
-gem 'railties', *rails_version
+rails_version = '~> 6.0.3'
+gem 'activemodel', rails_version
+gem 'activejob', rails_version
+gem 'activerecord', rails_version
+gem 'activestorage', rails_version
+gem 'actionpack', rails_version
+gem 'actionmailer', rails_version
+gem 'actiontext', rails_version
+gem 'actionview', rails_version
+gem 'railties', rails_version
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
 # if you update this, you have to update yarn upgrade @rails/webpacker to the same version
-gem 'webpacker', '5.0.1'
+gem 'webpacker', '5.2.1'
 # if you update this, you have to update yarn upgrade turbolinks to the same version
 gem 'turbolinks', '5.2.1'
 # Use Redis adapter to run Action Cable in production
@@ -38,7 +38,7 @@ gem 'turbolinks', '5.2.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'dalli', '2.7.10'
-gem 'sentry-raven', '3.0.0'
+gem 'sentry-raven', '~> 3.0'
 
 gem 'slim-rails', '~> 3'
 gem 'devise', '~> 4.7'

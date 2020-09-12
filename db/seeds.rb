@@ -17,6 +17,6 @@ end
 
 unless Link.exists?
   links = 3.times.each do |i|
-    user.links.create!("link - #{i}", url: 'https://www.google.com')
+    user.links.create!(name: "link - #{i}", url: 'https://www.google.com')
   end
 end
